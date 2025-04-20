@@ -24,6 +24,7 @@ class Header extends Component {
 
   render() {
     const {isMobileMenuClicked} = this.state
+    const selectedRoute = this.props.location.pathname
     return (
       <>
         <nav className="nav-header">
@@ -62,13 +63,27 @@ class Header extends Component {
               </Link>
               <ul className="nav-menu">
                 <li className="nav-menu-item">
-                  <Link to="/" className="nav-link">
+                  <Link
+                    to="/"
+                    className={
+                      selectedRoute === '/'
+                        ? `selected-route nav-link`
+                        : 'nav-link'
+                    }
+                  >
                     Home
                   </Link>
                 </li>
 
                 <li className="nav-menu-item">
-                  <Link to="/cart" className="nav-link">
+                  <Link
+                    to="/cart"
+                    className={
+                      selectedRoute === '/cart'
+                        ? `selected-route nav-link`
+                        : 'nav-link'
+                    }
+                  >
                     Cart
                   </Link>
                 </li>
@@ -89,13 +104,27 @@ class Header extends Component {
               <div className="nav-menu-container">
                 <ul className="nav-menu-list-mobile">
                   <li className="nav-menu-item-mobile">
-                    <Link to="/" className="nav-link">
+                    <Link
+                      to="/"
+                      className={
+                        selectedRoute === '/'
+                          ? `selected-route nav-link`
+                          : 'nav-link'
+                      }
+                    >
                       Home
                     </Link>
                   </li>
 
                   <li className="nav-menu-item-mobile">
-                    <Link to="/cart" className="nav-link">
+                    <Link
+                      to="/cart"
+                      className={
+                        selectedRoute === '/cart'
+                          ? `selected-route nav-link`
+                          : 'nav-link'
+                      }
+                    >
                       Cart
                     </Link>
                   </li>

@@ -93,8 +93,8 @@ class RestaurantSection extends Component {
           sortByOptions={sortByOptions}
           changeSortBy={this.changeSortBy}
         />
-        <hr className="hr-line" />
-        <ul className="restaurant-list">
+        <hr className='hr-line' />
+        <ul className='restaurant-list'>
           {restaurantList.map(restaurant => (
             <RestaurantCardItem restaurant={restaurant} key={restaurant.id} />
           ))}
@@ -104,18 +104,18 @@ class RestaurantSection extends Component {
   }
 
   renderFailureView = () => (
-    <div className="restaurant-error-view-container">
+    <div className='restaurant-error-view-container'>
       <img
-        src="https://res.cloudinary.com/djjbttpq0/image/upload/v1641968177/Tasty%20Kitchens/erroring_1x_x7gtp8.png"
-        alt="restaurants failure"
-        className="restaurant-failure-img"
+        src='https://res.cloudinary.com/djjbttpq0/image/upload/v1641968177/Tasty%20Kitchens/erroring_1x_x7gtp8.png'
+        alt='restaurants failure'
+        className='restaurant-failure-img'
       />
-      <h1 className="restaurant-failure-heading-text">Page Not Found</h1>
-      <p className="restaurant-failure-description">
+      <h1 className='restaurant-failure-heading-text'>Page Not Found</h1>
+      <p className='restaurant-failure-description'>
         we are sorry, the page you requested could not be found Please go back
         to the homepage
       </p>
-      <button className="error-button" type="button">
+      <button className='error-button' type='button'>
         Home Page
       </button>
     </div>
@@ -123,10 +123,10 @@ class RestaurantSection extends Component {
 
   renderLoadingView = () => (
     <div
-      testid="restaurants-list-loader"
-      className="restaurant-loader-container"
+      testid='restaurants-list-loader'
+      className='restaurant-loader-container'
     >
-      <Loader type="Oval" color="#F7931E" height="50" width="50" />
+      <Loader type='Oval' color='#F7931E' height='50' width='50' />
     </div>
   )
 
@@ -170,37 +170,37 @@ class RestaurantSection extends Component {
     return (
       <div>
         <ReactSlider />
-        <div className="all-restaurant-responsive-container">
+        <div className='all-restaurant-responsive-container'>
           {this.renderRestaurants()}
-          <div className="restaurant-navigation">
+          <div className='restaurant-navigation'>
             <button
-              type="button"
-              className="arrow-button"
-              testid="pagination-left-button"
+              type='button'
+              className='arrow-button'
+              testid='pagination-left-button'
               onClick={this.leftArrowClicked}
             >
               <img
-                src="https://res.cloudinary.com/nsp/image/upload/v1635835069/tastyKitchens/Icon_1x_iq50dr.png"
-                alt=""
-                className="arrow"
+                src='https://res.cloudinary.com/nsp/image/upload/v1635835069/tastyKitchens/Icon_1x_iq50dr.png'
+                alt=''
+                className='arrow'
               />
             </button>
             <p>
-              <span testid="active-page-number" className="current-page">
+              <span testid='active-page-number' className='current-page'>
                 {currentPage}
               </span>
               of {totalPages}
             </p>
             <button
-              type="button"
-              className="arrow-button"
-              testid="pagination-right-button"
+              type='button'
+              className='arrow-button'
+              testid='pagination-right-button'
               onClick={this.rightArrowClicked}
             >
               <img
-                src="https://res.cloudinary.com/nsp/image/upload/v1635835103/tastyKitchens/Icon_1x_n6kori.png"
-                alt=""
-                className="arrow"
+                src='https://res.cloudinary.com/nsp/image/upload/v1635835103/tastyKitchens/Icon_1x_n6kori.png'
+                alt=''
+                className='arrow'
               />
             </button>
           </div>
