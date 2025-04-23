@@ -21,7 +21,11 @@ const RestaurantHeaderDetails = props => {
     changeSortBy(event.target.value)
   }
 
-  const {sortByOptions, activeOptionId} = props
+  const onHandleSearchInputChange = event => {
+    const {handleSearchInputChange} = props
+    handleSearchInputChange(event.target.value)
+  }
+  const {sortByOptions, activeOptionId, searchInput} = props
   return (
     <div className="restaurant-header">
       <div className="header-text-container">
@@ -31,6 +35,13 @@ const RestaurantHeaderDetails = props => {
           happy...
         </p>
       </div>
+      <input
+        type="text"
+        placeholder="Search Restaurants"
+        value={searchInput}
+        onChange={onHandleSearchInputChange}
+      />
+
       <div className="sort-by-container">
         <BsFilterRight className="sort-by-icon" />
         <p className="sort-by">Sort by</p>

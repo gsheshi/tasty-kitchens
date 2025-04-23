@@ -8,6 +8,8 @@ import RestaurantCardItem from '../RestaurantCardItem'
 
 import './index.css'
 
+import {BsFilterRight} from 'react-icons/bs'
+
 const sortByOptions = [
   {
     id: 0,
@@ -28,6 +30,8 @@ const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
 }
 
+const limit = 9
+
 class RestaurantSection extends Component {
   state = {
     restaurantList: [],
@@ -35,6 +39,7 @@ class RestaurantSection extends Component {
     currentPage: 1,
     totalPages: 1,
     apiStatus: apiStatusConstants.initial,
+    searchInput: '',
   }
 
   componentDidMount() {
@@ -46,10 +51,9 @@ class RestaurantSection extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const {activeOptionId, currentPage} = this.state
-    const apiUrl = `https://apis.ccbp.in/restaurants-list?offset=${
-      (currentPage - 1) * 9
-    }&limit=9&sort_by_rating=${activeOptionId}`
+    const {activeOptionId, currentPage, searchInput} = this.state
+    const offset = (currentPage - 1) * limit
+    const apiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${offset}&limit=9&sort_by_rating=${activeOptionId}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -83,18 +87,17 @@ class RestaurantSection extends Component {
     this.setState({activeOptionId}, this.getRestaurants)
   }
 
+  handleSearchInputChange = searchInput => {
+    this.setState({searchInput, currentPage: 1}, this.getRestaurants)
+  }
+
   renderRestaurantListView = () => {
-    const {restaurantList, activeOptionId} = this.state
+    const {restaurantList} = this.state
 
     return (
       <>
-        <RestaurantHeaderDetails
-          activeOptionId={activeOptionId}
-          sortByOptions={sortByOptions}
-          changeSortBy={this.changeSortBy}
-        />
-        <hr className='hr-line' />
-        <ul className='restaurant-list'>
+        <hr className="hr-line" />
+        <ul className="restaurant-list">
           {restaurantList.map(restaurant => (
             <RestaurantCardItem restaurant={restaurant} key={restaurant.id} />
           ))}
@@ -104,18 +107,18 @@ class RestaurantSection extends Component {
   }
 
   renderFailureView = () => (
-    <div className='restaurant-error-view-container'>
+    <div className="restaurant-error-view-container">
       <img
-        src='https://res.cloudinary.com/djjbttpq0/image/upload/v1641968177/Tasty%20Kitchens/erroring_1x_x7gtp8.png'
-        alt='restaurants failure'
-        className='restaurant-failure-img'
+        src="https://res.cloudinary.com/djjbttpq0/image/upload/v1641968177/Tasty%20Kitchens/erroring_1x_x7gtp8.png"
+        alt="restaurants failure"
+        className="restaurant-failure-img"
       />
-      <h1 className='restaurant-failure-heading-text'>Page Not Found</h1>
-      <p className='restaurant-failure-description'>
+      <h1 className="restaurant-failure-heading-text">Page Not Found</h1>
+      <p className="restaurant-failure-description">
         we are sorry, the page you requested could not be found Please go back
         to the homepage
       </p>
-      <button className='error-button' type='button'>
+      <button className="error-button" type="button">
         Home Page
       </button>
     </div>
@@ -123,10 +126,10 @@ class RestaurantSection extends Component {
 
   renderLoadingView = () => (
     <div
-      testid='restaurants-list-loader'
-      className='restaurant-loader-container'
+      testid="restaurants-list-loader"
+      className="restaurant-loader-container"
     >
-      <Loader type='Oval' color='#F7931E' height='50' width='50' />
+      <Loader type="Oval" color="#F7931E" height="50" width="50" />
     </div>
   )
 
@@ -166,41 +169,48 @@ class RestaurantSection extends Component {
   }
 
   render() {
-    const {currentPage, totalPages} = this.state
+    const {currentPage, totalPages, searchInput, activeOptionId} = this.state
     return (
       <div>
         <ReactSlider />
-        <div className='all-restaurant-responsive-container'>
+        <div className="all-restaurant-responsive-container">
+          <RestaurantHeaderDetails
+            searchInput={searchInput}
+            handleSearchInputChange={this.handleSearchInputChange}
+            activeOptionId={activeOptionId}
+            changeSortBy={this.changeSortBy}
+            sortByOptions={sortByOptions}
+          />
           {this.renderRestaurants()}
-          <div className='restaurant-navigation'>
+          <div className="restaurant-navigation">
             <button
-              type='button'
-              className='arrow-button'
-              testid='pagination-left-button'
+              type="button"
+              className="arrow-button"
+              testid="pagination-left-button"
               onClick={this.leftArrowClicked}
             >
               <img
-                src='https://res.cloudinary.com/nsp/image/upload/v1635835069/tastyKitchens/Icon_1x_iq50dr.png'
-                alt=''
-                className='arrow'
+                src="https://res.cloudinary.com/nsp/image/upload/v1635835069/tastyKitchens/Icon_1x_iq50dr.png"
+                alt=""
+                className="arrow"
               />
             </button>
             <p>
-              <span testid='active-page-number' className='current-page'>
+              <span testid="active-page-number" className="current-page">
                 {currentPage}
               </span>
               of {totalPages}
             </p>
             <button
-              type='button'
-              className='arrow-button'
-              testid='pagination-right-button'
+              type="button"
+              className="arrow-button"
+              testid="pagination-right-button"
               onClick={this.rightArrowClicked}
             >
               <img
-                src='https://res.cloudinary.com/nsp/image/upload/v1635835103/tastyKitchens/Icon_1x_n6kori.png'
-                alt=''
-                className='arrow'
+                src="https://res.cloudinary.com/nsp/image/upload/v1635835103/tastyKitchens/Icon_1x_n6kori.png"
+                alt=""
+                className="arrow"
               />
             </button>
           </div>

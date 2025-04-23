@@ -57,7 +57,7 @@ class ReactSlider extends Component {
       dots: true,
       autoplay: true,
       autoplaySpeed: 2000,
-      arrows: false,
+      arrows: true,
       infinite: true,
     }
 

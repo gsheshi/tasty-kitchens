@@ -65,11 +65,7 @@ class CartItem extends Component {
     return (
       <>
         <li testid="cartItem" className="mobile-list-cart-item">
-          <img
-            className="mobile-cart-item-image"
-            src={imageUrl}
-            alt={imageUrl}
-          />
+          <img className="mobile-cart-item-image" src={imageUrl} alt={name} />
           <div>
             <h1 className="cart-Item-name">{name}</h1>
             <div className="cartItem-quantity-container">
@@ -99,7 +95,7 @@ class CartItem extends Component {
             </p>
           </div>
         </li>
-        <li testid="cartItem" className="desktop-list-cart-item">
+        <li className="desktop-list-cart-item">
           <div className="desktop-item-container">
             <img
               className="desktop-cart-item-image"
