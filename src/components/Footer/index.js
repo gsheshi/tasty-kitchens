@@ -9,18 +9,19 @@ import './index.css'
 
 const Footer = () => (
   <div className="footer-container">
-    <div className="footer-heading-container">
+    <div className="logo-container">
       <img
-        src="https://res.cloudinary.com/nsp/image/upload/v1635840304/tastyKitchens/logowhite_t8wfhc.png"
+        src="https://res.cloudinary.com/sravangunaganti/image/upload/v1653303485/TastyKitchens/Frame_275_bwub4v.png"
         alt="website-footer-logo"
-        className="website-footer-logo"
+        className="logo"
       />
       <h1 className="footer-heading">Tasty Kitchens</h1>
     </div>
-    <p className="footer-para">
-      The only thing we are serious about is food. Contact us on
+    <p className="footer-description">
+      The only thing we are serious about is food.
+      <br /> Contact us on
     </p>
-    <div className="social-container">
+    <div className="social-icons-container">
       <FaPinterestSquare
         testid="pintrest-social-icon"
         className="social-icon"

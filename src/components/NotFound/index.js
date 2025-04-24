@@ -1,24 +1,29 @@
 import {Link} from 'react-router-dom'
+import Header from '../Header'
+
 import './index.css'
 
 const NotFound = () => (
-  <div className="restaurant-error-view-container">
-    <img
-      src="https://res.cloudinary.com/djjbttpq0/image/upload/v1641968177/Tasty%20Kitchens/erroring_1x_x7gtp8.png"
-      alt="not found"
-      className="restaurant-failure-img"
-    />
-    <h1 className="restaurant-failure-heading-text">Page Not Found</h1>
-    <p className="restaurant-failure-description">
-      we are sorry, the page you requested could not be found Please go back to
-      the homepage
-    </p>
-    <Link to="/">
-      <button className="error-button" type="button">
-        Home Page
-      </button>
-    </Link>
-  </div>
+  <>
+    <Header />
+    <div className="not-found-container">
+      <img
+        src="https://res.cloudinary.com/sravangunaganti/image/upload/v1653302585/TastyKitchens/erroring_1_l730sf.png"
+        alt="not found"
+        className="not-found-image"
+      />
+      <h1 className="not-found-heading">Page Not Found</h1>
+      <p className="not-found-text">
+        we are sorry, the page you requested could not be found <br /> Please go
+        back to the homepage
+      </p>
+      <Link to="/">
+        <button type="button" className="home-btn">
+          Home Page
+        </button>
+      </Link>
+    </div>
+  </>
 )
 
 export default NotFound

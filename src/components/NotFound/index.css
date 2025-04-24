@@ -1,124 +1,50 @@
-.restaurant-error-view-container {
+.not-found-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 48px;
-  padding-bottom: 64px;
-  width: 90%;
+  min-height: 90vh;
+}
+
+.not-found-image {
+  width: 150px;
 }
 
 @media screen and (min-width: 768px) {
-  .restaurant-error-view-container {
-    margin-top: 0px;
-    margin-left: 30px;
-    width: 80%;
-    padding-bottom: 0;
+  .not-found-image {
+    width: 250px;
   }
 }
 
-.restaurant-failure-img {
-  width: 250px;
-  height: 200px;
-}
-
-@media screen and (min-width: 768px) {
-  .restaurant-failure-img {
-    width: 400px;
-    height: 350px;
-  }
-}
-
-.restaurant-failure-heading-text {
+.not-found-heading {
   font-family: DM Sans;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 32px;
-  /* identical to box height, or 160% */
-
+  font-size: 32px;
+  line-height: 48px;
   text-align: center;
-
-  /* Light / blue-gray / 800 */
-
   color: #1e293b;
 }
 
-@media screen and (min-width: 768px) {
-  .restaurant-failure-heading-text {
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 48px;
-    /* identical to box height, or 150% */
-
-    text-align: center;
-
-    /* Light / blue-gray / 800 */
-
-    color: #1e293b;
-  }
-}
-
-.restaurant-failure-description {
+.not-found-text {
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  /* or 150% */
-
+  font-size: 14px;
+  line-height: 32px;
   text-align: center;
-
-  /* Light / blue-gray / 600 */
-
   color: #475569;
 }
-
 @media screen and (min-width: 768px) {
-  .restaurant-failure-description {
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: normal;
+  .not-found-text {
     font-size: 20px;
-    line-height: 32px;
-    /* or 160% */
-
-    text-align: center;
-
-    /* Light / blue-gray / 600 */
-
-    color: #475569;
   }
 }
-.error-button {
-  background-color: #f7931e;
+
+.home-btn {
+  background: #f7931e;
   border-radius: 8px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  /* identical to box height, or 133% */
-
-  /* Light / base / white */
-
+  padding: 8px 16px;
   color: #ffffff;
-}
-@media screen and (min-width: 768px) {
-  .error-button {
-    background-color: #f7931e;
-    border-radius: 12px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    /* identical to box height, or 171% */
-
-    /* Light / base / white */
-
-    color: #ffffff;
-  }
+  border: none;
 }
